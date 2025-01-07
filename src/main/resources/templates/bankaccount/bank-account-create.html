@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Bank Account</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Create New Bank Account</h1>
+<form action="#" th:action="@{/bank-accounts}" th:object="${bankAccount}" method="post">
+    <label for="accountNumber">Account Number:</label>
+    <input type="text" id="accountNumber" th:field="*{accountNumber}" placeholder="Enter Account Number" required/>
+
+    <label for="accountType">Account Type:</label>
+    <select id="accountType" th:field="*{accountType}" required>
+        <option value="Personal">Personal</option>
+        <option value="Corporate">Corporate</option>
+    </select>
+
+    <label for="balance">Balance:</label>
+    <input type="number" id="balance" th:field="*{balance}" placeholder="Enter Initial Balance" required step="0.01"/>
+
+    <button type="submit">Create Bank Account</button>
+</form>
+
+<a href="/bank-accounts">Back to Account List</a>
+</body>
+</html>
